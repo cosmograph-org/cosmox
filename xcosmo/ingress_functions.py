@@ -14,7 +14,7 @@ from typing import Dict, Any, Optional, Union
 import logging
 from functools import wraps
 
-from cosmox.ingress_framework import (
+from xcosmo.ingress_framework import (
     CosmoKwargs,
     as_ingress,
     INGRESS_REGISTRY,
@@ -490,7 +490,7 @@ def warn_on_large_datasets(kwargs: CosmoKwargs, threshold: int = 10000) -> Cosmo
 
 def create_smart_defaults_pipeline():
     """Create a pipeline with common smart defaults."""
-    from cosmox.ingress_framework import IngressPipeline
+    from xcosmo.ingress_framework import IngressPipeline
 
     return IngressPipeline(
         [
@@ -511,7 +511,7 @@ def create_smart_defaults_pipeline():
 
 def create_validation_pipeline():
     """Create a pipeline focused on validation."""
-    from cosmox.ingress_framework import IngressPipeline
+    from xcosmo.ingress_framework import IngressPipeline
 
     return IngressPipeline(
         [

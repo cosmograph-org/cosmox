@@ -6,7 +6,7 @@ Successfully implemented a **modular framework for ingress function management**
 
 ## Files Created
 
-### 1. Core Framework (`cosmox/ingress_framework.py`)
+### 1. Core Framework (`xcosmo/ingress_framework.py`)
 **Lines of code**: ~600
 
 **Key Components**:
@@ -22,7 +22,7 @@ Successfully implemented a **modular framework for ingress function management**
 - Registry Pattern (centralized lookup)
 - Protocol Pattern (runtime duck typing)
 
-### 2. Ingress Functions Library (`cosmox/ingress_functions.py`)
+### 2. Ingress Functions Library (`xcosmo/ingress_functions.py`)
 **Lines of code**: ~500
 
 **Categories Implemented**:
@@ -57,7 +57,7 @@ Successfully implemented a **modular framework for ingress function management**
 
 **Total**: 16 registered ingress functions
 
-### 3. Updated Exports (`cosmox/__init__.py`)
+### 3. Updated Exports (`xcosmo/__init__.py`)
 Added comprehensive exports for:
 - Framework classes and utilities
 - All ingress functions
@@ -167,14 +167,14 @@ All tests passed:
 
 ### Minimal
 ```python
-from cosmox import cosmo, create_smart_defaults_pipeline
+from xcosmo import cosmo, create_smart_defaults_pipeline
 
 cosmo(points=df, ingress=create_smart_defaults_pipeline())
 ```
 
 ### Custom Pipeline
 ```python
-from cosmox import compose_ingresses, guess_point_xy_columns
+from xcosmo import compose_ingresses, guess_point_xy_columns
 
 my_ingress = compose_ingresses(
     guess_point_xy_columns,
@@ -185,7 +185,7 @@ cosmo(points=df, ingress=my_ingress)
 
 ### Custom Function
 ```python
-from cosmox import as_ingress
+from xcosmo import as_ingress
 
 @as_ingress(register=True)
 def enrich_data(kwargs):

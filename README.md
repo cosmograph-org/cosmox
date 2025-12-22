@@ -1,2 +1,2 @@
-# cosmox
+# xcosmo
 Python extensions of cosmograph

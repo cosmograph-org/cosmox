@@ -3,7 +3,7 @@
 ## One-Line Use Cases
 
 ```python
-from cosmox import cosmo, create_smart_defaults_pipeline
+from xcosmo import cosmo, create_smart_defaults_pipeline
 
 # Just add ingress=create_smart_defaults_pipeline() 
 graph = cosmo(points=df, ingress=create_smart_defaults_pipeline())
@@ -19,7 +19,7 @@ graph = cosmo(points=df, links=links_df, ingress=pipeline)
 
 ### Pattern 2: Add Custom Logic
 ```python
-from cosmox import compose_ingresses, create_smart_defaults_pipeline, as_ingress
+from xcosmo import compose_ingresses, create_smart_defaults_pipeline, as_ingress
 
 @as_ingress
 def my_transform(kwargs):
@@ -34,7 +34,7 @@ pipeline = compose_ingresses(
 
 ### Pattern 3: Selective Ingresses
 ```python
-from cosmox import guess_point_xy_columns, infer_color_by_from_clusters
+from xcosmo import guess_point_xy_columns, infer_color_by_from_clusters
 
 pipeline = compose_ingresses(
     guess_point_xy_columns,
@@ -44,7 +44,7 @@ pipeline = compose_ingresses(
 
 ### Pattern 4: Registry Lookup
 ```python
-from cosmox import get_ingress
+from xcosmo import get_ingress
 
 validator = get_ingress('check_points_and_links_format')
 graph = cosmo(points=df, ingress=[validator])
@@ -82,7 +82,7 @@ graph = cosmo(points=df, ingress=[validator])
 
 ### Simple (kwargs → kwargs)
 ```python
-from cosmox import as_ingress
+from xcosmo import as_ingress
 
 @as_ingress
 def my_ingress(kwargs):
@@ -99,7 +99,7 @@ def my_ingress(kwargs):
 
 ### Conditional
 ```python
-from cosmox import conditional_ingress
+from xcosmo import conditional_ingress
 
 conditional = conditional_ingress(
     condition=lambda kw: len(kw.get('points', [])) > 100,
@@ -119,7 +119,7 @@ pipeline = IngressPipeline(
 
 ### Add Debug Points
 ```python
-from cosmox import debug_ingress
+from xcosmo import debug_ingress
 
 pipeline = compose_ingresses(
     debug_ingress,      # Print state
@@ -166,7 +166,7 @@ With `create_smart_defaults_pipeline()`:
 
 ### With tabled
 ```python
-from cosmox import resolve_data_sources
+from xcosmo import resolve_data_sources
 
 graph = cosmo(
     points="path/to/data.csv",  # File path

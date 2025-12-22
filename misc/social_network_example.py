@@ -7,7 +7,7 @@ with minimal manual parameter specification.
 
 import pandas as pd
 import numpy as np
-from cosmox import (
+from xcosmo import (
     cosmo,
     compose_ingresses,
     create_smart_defaults_pipeline,

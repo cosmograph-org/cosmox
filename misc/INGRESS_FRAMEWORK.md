@@ -42,7 +42,7 @@ The ingress framework provides a clean, functional way to process and transform 
 ### Using Pre-built Pipelines
 
 ```python
-from cosmox import cosmo, create_smart_defaults_pipeline
+from xcosmo import cosmo, create_smart_defaults_pipeline
 
 # Let the framework infer parameters automatically
 pipeline = create_smart_defaults_pipeline()
@@ -57,7 +57,7 @@ graph = cosmo(
 ### Composing Custom Pipelines
 
 ```python
-from cosmox import (
+from xcosmo import (
     compose_ingresses,
     guess_point_xy_columns,
     infer_color_by_from_clusters,
@@ -77,7 +77,7 @@ graph = cosmo(points=df, ingress=my_pipeline)
 ### Creating Custom Ingress Functions
 
 ```python
-from cosmox import as_ingress
+from xcosmo import as_ingress
 
 @as_ingress(register=True, category="custom")
 def add_node_degree(kwargs):
@@ -105,7 +105,7 @@ pipeline = compose_ingresses(
 A composable chain of ingress functions with validation and logging.
 
 ```python
-from cosmox import IngressPipeline
+from xcosmo import IngressPipeline
 
 pipeline = IngressPipeline(
     [ingress1, ingress2, ingress3],
@@ -136,7 +136,7 @@ def validate_something(kwargs):
 Store and retrieve ingress functions by name:
 
 ```python
-from cosmox import INGRESS_REGISTRY, get_ingress, list_ingresses
+from xcosmo import INGRESS_REGISTRY, get_ingress, list_ingresses
 
 # List available ingresses
 all_ingresses = list_ingresses()
@@ -182,7 +182,7 @@ my_ingress = get_ingress("smart_defaults")
 ### Conditional Ingress
 
 ```python
-from cosmox import conditional_ingress
+from xcosmo import conditional_ingress
 
 # Only apply if condition is met
 large_dataset_handler = conditional_ingress(
@@ -194,7 +194,7 @@ large_dataset_handler = conditional_ingress(
 ### Debugging
 
 ```python
-from cosmox import debug_ingress, IngressPipeline
+from xcosmo import debug_ingress, IngressPipeline
 
 # Add debug points in your pipeline
 debug_pipeline = IngressPipeline(
@@ -212,7 +212,7 @@ debug_pipeline = IngressPipeline(
 The framework integrates seamlessly with `tabled` for data loading:
 
 ```python
-from cosmox import cosmo, resolve_data_sources
+from xcosmo import cosmo, resolve_data_sources
 
 # Pass file paths or URLs directly
 graph = cosmo(
@@ -294,7 +294,7 @@ pytest tests/test_ingress_framework.py
 
 To add new ingress functions:
 
-1. Implement in `cosmox/ingress_functions.py`
+1. Implement in `xcosmo/ingress_functions.py`
 2. Use `@as_ingress(register=True, category="...")`
 3. Add to appropriate category
 4. Include docstring and examples
@@ -302,4 +302,4 @@ To add new ingress functions:
 
 ## License
 
-Same as cosmox/cosmograph.
+Same as xcosmo/cosmograph.

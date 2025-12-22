@@ -3,7 +3,7 @@
 import cosmograph
 
 # Import the ingress framework and functions
-from cosmox.ingress_framework import (
+from xcosmo.ingress_framework import (
     IngressPipeline,
     IngressProtocol,
     compose_ingresses,
@@ -17,7 +17,7 @@ from cosmox.ingress_framework import (
     conditional_ingress,
 )
 
-from cosmox.ingress_functions import (
+from xcosmo.ingress_functions import (
     # Validation
     check_points_and_links_format,
     verify_by_params_reference_existing_columns,
@@ -43,4 +43,4 @@ from cosmox.ingress_functions import (
 )
 
 # Import cosmo function
-from cosmox.cosmograph import cosmo
+from xcosmo.cosmograph import cosmo
